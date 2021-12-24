@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 import { CompanyListComponent } from './company-list/company-list.component';
 import { CompanyDetailComponent } from './company-detail/company-detail.component';
 import { CompanyYandexMapComponent } from './company-yandex-map/company-yandex-map.component';
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {CompanyService} from "./companyService";
+
 
 
 
@@ -23,9 +26,9 @@ import { CompanyYandexMapComponent } from './company-yandex-map/company-yandex-m
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CompanyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

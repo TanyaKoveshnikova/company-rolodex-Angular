@@ -1,7 +1,5 @@
-import {Component, Injectable, OnInit} from '@angular/core';
-import {Config} from "../company-item";
-import {HttpClient} from "@angular/common/http";
-
+import {Component, OnInit} from '@angular/core';;
+import {CompanyService} from "../companyService";
 
 
 @Component({
@@ -10,15 +8,16 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./company-list.component.scss'],
 })
 export class CompanyListComponent implements OnInit {
-response:any;
-  constructor(private  http:HttpClient) {
+  response:any;
+
+  constructor(public companyService: CompanyService) {
+    companyService.getCompanyItems()
+      .subscribe((response) => {
+          this.response = response;
+          console.log(this.response);
+         });
   }
   ngOnInit() {
-    this.http.get<Config>('https://random-data-api.com/api/company/random_company?size=100')
-      .subscribe((response) => {
-        this.response = response;
-        console.log(this.response);
-      });
   }
 }
 
