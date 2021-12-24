@@ -1,0 +1,11 @@
+<div class="company-list">
+  <div *ngFor="let item of response">
+    <div class="companyItem">
+      <img class="imageCompanyItem" src="{{item.logo}}">
+      {{item.suffix}}"{{item.business_name}}" <br>
+      id: {{item.id}}<br>
+      industry: {{item.industry}}<br>
+      type: {{item.type}}
+    </div>
+  </div>
+</div>
