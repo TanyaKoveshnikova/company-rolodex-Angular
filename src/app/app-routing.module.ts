@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {CompanyListComponent} from "./company-list/company-list.component";
+import {CompanyYandexMapComponent} from "./company-yandex-map/company-yandex-map.component";
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'list', component: CompanyListComponent},
+  //{ path: 'detail/:id', component: CompanyDetailComponent },
+  {path: 'map', component: CompanyYandexMapComponent},
+  {path: '',   redirectTo: '/list', pathMatch: 'full' },
+  {path: '**', component: CompanyListComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
