@@ -12,7 +12,6 @@ const routes: Routes = [
   {path: '',   redirectTo: '/list', pathMatch: 'full' },
   {path: '**', component: CompanyListComponent}
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

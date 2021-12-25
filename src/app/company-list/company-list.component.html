@@ -1,7 +1,7 @@
 <div class="company-list">
-  <div *ngFor="let item of response">
-    <a [routerLink]="['/detail',item.id]"> <div class="companyItem">
-      <img class="imageCompanyItem" src="{{item.logo}}">
+  <div *ngFor="let item of company"  (click)="sendCustomerId(item?.id)">
+    <a [routerLink]="['/detail',item.id]" > <div class="companyItem">
+      <img class="imageCompanyItem" src="{{item.logo}}" alt="rr">
       {{item.suffix}}"{{item.business_name}}" <br>
       id: {{item.id}}<br>
       industry: {{item.industry}}<br>
@@ -9,4 +9,3 @@
     </div></a>
   </div>
 </div>
-

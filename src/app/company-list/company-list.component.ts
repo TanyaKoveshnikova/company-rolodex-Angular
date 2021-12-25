@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';;
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';;
 import {CompanyService} from "../companyService";
+import {Config} from "../company-item";
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -8,16 +10,25 @@ import {CompanyService} from "../companyService";
   styleUrls: ['./company-list.component.scss'],
 })
 export class CompanyListComponent implements OnInit {
-  response:any;
-
+  @Input() company: Config[] | undefined;
+  @Output() selected: EventEmitter<any> = new EventEmitter<any>();
   constructor(public companyService: CompanyService) {
-    companyService.getCompanyItems()
-      .subscribe((response) => {
-          this.response = response;
-          console.log(this.response);
-         });
   }
+
   ngOnInit() {
+  // this.getCompany();
+  }
+
+  // getCompany(){
+  // this.companyService.getCompanyItems()
+  //   .subscribe((response) => {
+  //     this.company = response;
+  //     console.log(this.company);
+  //   });
+  // }
+
+  sendCustomerId(id: any) {
+    this.selected.emit(id);
   }
 }
 
