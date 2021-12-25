@@ -10,10 +10,9 @@ import {CompanyService} from "./companyService";
 export class AppComponent implements OnInit{
   title = 'test-front';
 
-  company: Config[] | undefined;
-  companyDetails: Config[] | undefined ;
-  selectedCompany: Config | undefined;
-
+  company!: Config[];
+  companyDetails!: Config[];
+  selectedCompany!: Config;
 
   constructor(public companyService: CompanyService) {
   }
@@ -26,6 +25,7 @@ export class AppComponent implements OnInit{
     this.companyService.getCompanyItems()
       .subscribe((response) => {
         this.company = response;
+        this.companyDetails = response;
         console.log(this.company);
       });
   }
@@ -33,8 +33,10 @@ export class AppComponent implements OnInit{
 
   serSelectedId(id:any){
     console.log(id);
-    // @ts-ignore
-    this.selectedCompany = this.companyDetails.find((item: Config) => item.id == Number(id));
+    const item = this.companyDetails.find((item: Config) => item.id == Number(id));
+    if(item !== undefined) {
+      this.selectedCompany = item;
+    }
   }
 }
 

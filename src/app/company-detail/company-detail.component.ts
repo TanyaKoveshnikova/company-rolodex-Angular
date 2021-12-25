@@ -8,7 +8,7 @@ import {Config} from "../company-item";
   styleUrls: ['./company-detail.component.scss']
 })
 export class CompanyDetailComponent implements OnInit {
-  @Input() companyDetail: Config | undefined;
+  @Input() companyDetail!: Config;
   constructor() {
   }
 
