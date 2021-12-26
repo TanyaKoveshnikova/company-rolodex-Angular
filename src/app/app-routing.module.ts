@@ -5,9 +5,10 @@ import {CompanyYandexMapComponent} from "./company-yandex-map/company-yandex-map
 import { CompanyDetailComponent} from "./company-detail/company-detail.component";
 
 
+
 const routes: Routes = [
-  {path: 'list', component: CompanyListComponent},
   {path: 'detail/:id', component: CompanyDetailComponent},
+  {path: 'list', component: CompanyListComponent},
   {path: 'map', component: CompanyYandexMapComponent},
   {path: '',   redirectTo: '/list', pathMatch: 'full' },
   {path: '**', component: CompanyListComponent}

@@ -4,6 +4,5 @@
     <button class="button-company-list" routerLink="/map">Показать на карте</button>
   </nav>
   <router-outlet></router-outlet>
-  <app-company-list [company]="company" (selected)="serSelectedId($event)"></app-company-list>
-  <app-company-detail [companyDetail]="selectedCompany"></app-company-detail>
+  <ng-content></ng-content>
 </div>

@@ -9,8 +9,12 @@ import { AppComponent } from './app.component';
 import { CompanyListComponent } from './company-list/company-list.component';
 import { CompanyDetailComponent } from './company-detail/company-detail.component';
 import { CompanyYandexMapComponent } from './company-yandex-map/company-yandex-map.component';
-import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+
 import {CompanyService} from "./companyService";
+import { CompanySortComponent } from './company-sort/company-sort.component';
+import { SearchPipesName } from './search-pipes/search-pipes-name';
+import { CompanyFilterComponent } from './company-filter/company-filter.component';
+// import { InputLogicCompanyComponent } from './input-logic-company/input-logic-company.component';
 
 
 
@@ -18,9 +22,13 @@ import {CompanyService} from "./companyService";
 @NgModule({
   declarations: [
     AppComponent,
+    // InputLogicCompanyComponent,
     CompanyListComponent,
     CompanyDetailComponent,
-    CompanyYandexMapComponent
+    CompanyYandexMapComponent,
+    CompanySortComponent,
+    SearchPipesName,
+    CompanyFilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,5 +39,7 @@ import {CompanyService} from "./companyService";
   providers: [CompanyService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
 
