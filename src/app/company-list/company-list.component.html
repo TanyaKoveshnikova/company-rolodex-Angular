@@ -4,6 +4,7 @@
     <label class="'active" for="busness_name">Sort business name </label>
   </div>
 </div>
+
 <div class="company-list">
   <div *ngFor="let item of company | search:searchName" >
     <a [routerLink]="['/detail',item.id]" > <div class="companyItem">
@@ -15,5 +16,3 @@
     </div></a>
   </div>
 </div>
-
-jjj

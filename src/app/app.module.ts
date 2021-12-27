@@ -10,7 +10,7 @@ import { CompanyListComponent } from './company-list/company-list.component';
 import { CompanyDetailComponent } from './company-detail/company-detail.component';
 import { CompanyYandexMapComponent } from './company-yandex-map/company-yandex-map.component';
 
-import {CompanyService} from "./companyService";
+import {CompanyService} from "./company-service.service";
 import { CompanySortComponent } from './company-sort/company-sort.component';
 import { SearchPipesName } from './search-pipes/search-pipes-name';
 import { CompanyFilterComponent } from './company-filter/company-filter.component';

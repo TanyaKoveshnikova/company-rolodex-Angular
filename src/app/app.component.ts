@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Config} from "./company-item";
-import {CompanyService} from "./companyService";
+import {CompanyService} from "./company-service.service";
 
 
 @Component({

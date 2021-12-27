@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';;
-import {CompanyService} from "../companyService";
+import {CompanyService} from "../company-service.service";
 import {Config} from "../company-item";
 
 
@@ -10,9 +10,7 @@ import {Config} from "../company-item";
 })
 export class CompanyListComponent implements OnInit {
   company!: Config[];
-  companyDetails!: Config[];
   searchName = '';
-  selectedCompany!: Config;
   constructor(public companyService: CompanyService) {
   }
 
@@ -21,12 +19,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   getCompany(){
-    this.companyService.getCompanyItems()
-      .subscribe((response) => {
-        this.company = response;
-        this.companyDetails = response;
-        console.log(this.company);
-      });
+    this.company = this.companyService.getCompanyArr();
   }
 }
 
