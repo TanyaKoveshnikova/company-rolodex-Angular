@@ -8,7 +8,6 @@ import {Config} from "./company-item";
 @Injectable({ providedIn: 'root' })
 export class CompanyService implements OnInit{
   public company!: Config[];
-  public companyDetails!: Config[];
   public companyItem!: Config | undefined;
   public url:string = 'https://random-data-api.com/api/company/random_company?size=100'
 
@@ -23,7 +22,6 @@ export class CompanyService implements OnInit{
     this.getCompanyItems()
       .subscribe((response) => {
         this.company = response;
-        this.companyDetails = response;
         console.log(this.company);
       });
   }
@@ -36,17 +34,9 @@ export class CompanyService implements OnInit{
     return this.company;
   }
 
-  public serSelectedId(id:any):any{
-    console.log(id);
-    for(let i of this.company){
-      if(i.id === Number(id)){
-        this.companyItem = i;
-        return this.companyItem;
-      }
-      this.companyItem = this.company[0];
-    }
-    // const item = this.company.find((item: Config) => item.id == Number(id));
-    // this.companyItem =Object.assign({}, item);
+  public serSelectedId(id: number):any{
+    const item = this.company.find((item: Config) => item.id == id);
+    this.companyItem = item;
     return this.companyItem;
   }
 }

@@ -19,7 +19,6 @@ export class CompanyDetailComponent implements OnInit {
 
   constructor(public companyService: CompanyService,
               private activateRoute: ActivatedRoute) {
-    console.log('constructor:' + this.companyItem + ' ' + this.id)
   }
 
 
@@ -28,18 +27,12 @@ export class CompanyDetailComponent implements OnInit {
        switchMap(params => params.getAll('id')))
        .subscribe(data=> this.id = +data);
 
-     this.companyItem=this.companyService.serSelectedId(this.id);
-     console.log('getElement:' + this.companyItem  + ' ' + this.id)
-
-     console.log('ngOnInit:' + this.companyItem  + ' ' + this.id  + ' '+ this.companyService.company[2])
+     this.getElement();
   }
 
 
-  // getElement(){
-  //   // this.id = this.activateRoute.snapshot.params['id'];
-  //   this.companyItem=this.companyService.serSelectedId(this.id);
-  //   console.log('getElement:' + this.companyItem )
-  //   // this.companyItem = this.companyService.companyItem;
-  // }
+  getElement(){
+    this.companyItem=this.companyService.serSelectedId(this.id);
+  }
 }
 
