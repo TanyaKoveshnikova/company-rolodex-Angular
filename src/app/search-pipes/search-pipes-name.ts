@@ -5,7 +5,7 @@ import {Config} from "../company-item";
   name: 'search'
 })
 export class SearchPipesName implements PipeTransform{
-  transform(companyList:any, value:any): Array<Config> {
+  transform(companyList:Config[], value:string): Array<Config> {
     return companyList.filter((company:any) => {
       return company.business_name.includes(value) || company.type.includes(value)
         || company.industry.includes(value);

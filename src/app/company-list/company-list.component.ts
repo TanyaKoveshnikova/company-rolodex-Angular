@@ -20,6 +20,7 @@ export class CompanyListComponent implements OnInit {
 
   getCompany(){
     this.company = this.companyService.getCompanyArr();
+    console.log(this.companyService.company[2])
   }
 }
 

@@ -8,8 +8,13 @@ import {CompanyService} from "./company-service.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   title = 'test-front';
+  constructor(public companyService: CompanyService) {
+  }
+  ngOnInit() {
+    this.companyService.ngOnInit();
+  }
 
 }
 
