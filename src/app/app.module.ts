@@ -13,8 +13,8 @@ import { CompanyYandexMapComponent } from './company-yandex-map/company-yandex-m
 import {CompanyService} from "./company-service.service";
 import { CompanySortComponent } from './company-sort/company-sort.component';
 import { SearchPipesName } from './search-pipes/search-pipes-name';
-import { CompanyFilterComponent } from './company-filter/company-filter.component';
 import {ShowPipesCompanyType} from "./search-pipes/show-pipes-company-type";
+import {ShowPipesCompanyIndustry} from "./search-pipes/show-pipes-company-industry";
 
 
 
@@ -27,8 +27,8 @@ import {ShowPipesCompanyType} from "./search-pipes/show-pipes-company-type";
     CompanyYandexMapComponent,
     CompanySortComponent,
     SearchPipesName,
-    CompanyFilterComponent,
-    ShowPipesCompanyType
+    ShowPipesCompanyType,
+    ShowPipesCompanyIndustry
   ],
   imports: [
     BrowserModule,

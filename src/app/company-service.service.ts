@@ -11,7 +11,6 @@ export class CompanyService implements OnInit{
   public companyItem!: Config | undefined;
 
   public companyType!: any;
-  public registrationFormType: any;
   private url:string = 'https://random-data-api.com/api/company/random_company?size=100'
 
   constructor(private http: HttpClient) { }
@@ -31,7 +30,6 @@ export class CompanyService implements OnInit{
 
   ngOnInit() {
     this.getCompany();
-    this.getUnicTypesCompany();
   }
   public getCompanyType(){
     this.getUnicTypesCompany();
@@ -46,15 +44,6 @@ export class CompanyService implements OnInit{
     const item = this.company.find((item: Config) => item.id == id);
     this.companyItem = item;
     return this.companyItem;
-  }
-
-  public getCompanyForSelectedType(registrationFormType:any):any{
-    return this.company.filter((x:any) => {
-      let chooseItem = registrationFormType;
-      if(chooseItem === x.type){
-        return x;
-      }
-    })
   }
 
   public getUnicTypesCompany(){
