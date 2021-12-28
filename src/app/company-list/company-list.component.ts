@@ -11,14 +11,17 @@ import {Config} from "../company-item";
 export class CompanyListComponent implements OnInit {
   company!: Config[];
   searchName = '';
-  showTypeCompany =''
-  companyType:any
+  showTypeCompany ='';
+  showIndustryCompany="";
+  companyType:any;
+  companyIndustry: any;
   constructor(public companyService: CompanyService) {
   }
 
   ngOnInit() {
     this.getCompany();
     this.getCompanyType();
+    this.getCompanyIndustry();
   }
 
   getCompany(){
@@ -27,6 +30,10 @@ export class CompanyListComponent implements OnInit {
 
   getCompanyType (){
     this.companyType = this.companyService.getCompanyType();
+  }
+
+  getCompanyIndustry (){
+    this.companyIndustry = this.companyService.getCompanyIndustry();
   }
 
 }

@@ -11,6 +11,7 @@ export class CompanyService implements OnInit{
   public companyItem!: Config | undefined;
 
   public companyType!: any;
+  public companyIndustry!: any;
   private url:string = 'https://random-data-api.com/api/company/random_company?size=100'
 
   constructor(private http: HttpClient) { }
@@ -36,6 +37,11 @@ export class CompanyService implements OnInit{
     return this.companyType;
   }
 
+  public getCompanyIndustry(){
+    this.getUnicIndustryCompany();
+    return this.companyIndustry;
+  }
+
   public getCompanyArr(){
     return this.company;
   }
@@ -55,6 +61,17 @@ export class CompanyService implements OnInit{
 
     const uniqueSet = new Set(arrayTypes);
     this.companyType = [...uniqueSet];
+  }
+
+  public getUnicIndustryCompany(){
+    const company = this.company;
+    let arrayTypes =[];
+    for(let i of company){
+      arrayTypes.push(i.industry);
+    }
+
+    const uniqueSet = new Set(arrayTypes);
+    this.companyIndustry = [...uniqueSet];
   }
 }
 

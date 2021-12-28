@@ -7,11 +7,10 @@ import {CompanyService} from "../company-service.service";
 })
 export class ShowPipesCompanyIndustry implements PipeTransform{
 
-  companyType:any
+  companyIndustry:any
   constructor( public companyService: CompanyService) {
-    this.companyType = this.companyService.companyType;
+    this.companyIndustry = this.companyService.companyIndustry;
   }
-
 
 
   transform(companyList:Config[], value:string): Array<Config> {
@@ -19,7 +18,7 @@ export class ShowPipesCompanyIndustry implements PipeTransform{
       return companyList;
     }
     return companyList.filter((x:any) => {
-      if(value === x.type){
+      if(value === x.industry){
         return x;
       }
     })

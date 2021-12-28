@@ -10,9 +10,10 @@ import {CompanyService} from "./company-service.service";
 export class AppComponent implements OnInit{
   title = 'test-front';
   constructor(public companyService: CompanyService) {
+    this.companyService.ngOnInit();
   }
   ngOnInit() {
-    this.companyService.ngOnInit();
+    // this.companyService.ngOnInit();
   }
 }
 

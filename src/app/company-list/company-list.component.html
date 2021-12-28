@@ -1,7 +1,4 @@
-ttttttttttt
-ttt{{companyType}}rrrrrr
-rrrrrrrr
-
+<div class="'lookNeedValue">
 <div class="input-fields">
   <div class="inputName">
     <input id="busness_name" [(ngModel)]="searchName">
@@ -11,19 +8,22 @@ rrrrrrrr
 
 <div class="select-boxes">
   <div class="select-boxItem">
-    <div class="group-gap">
-      <div class="mb-3">
         <select class="custom-select"  [(ngModel)]="showTypeCompany">
           <option value="">Choose your type company</option>
           <option *ngFor="let type of companyType" [ngValue]="type">{{type}}</option>
         </select>
-      </div>
-    </div>
   </div>
+  <div class="select-boxItem">
+    <select class="custom-select"  [(ngModel)]="showIndustryCompany">
+      <option value="">Choose your industry company</option>
+      <option *ngFor="let industry of companyIndustry" [ngValue]="industry">{{industry}}</option>
+    </select>
+  </div>
+</div>
 </div>
 
 <div class="company-list">
-  <div *ngFor="let item of company | search:searchName | show:showTypeCompany" >
+  <div *ngFor="let item of company | search:searchName | show:showTypeCompany | showInd:showIndustryCompany" >
     <a [routerLink]="['/detail',item.id]" > <div class="companyItem">
       <img class="imageCompanyItem" src="{{item.logo}}" alt="rr">
       {{item.suffix}}"{{item.business_name}}" <br>
