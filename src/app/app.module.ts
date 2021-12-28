@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +14,7 @@ import {CompanyService} from "./company-service.service";
 import { CompanySortComponent } from './company-sort/company-sort.component';
 import { SearchPipesName } from './search-pipes/search-pipes-name';
 import { CompanyFilterComponent } from './company-filter/company-filter.component';
-// import { InputLogicCompanyComponent } from './input-logic-company/input-logic-company.component';
+import {ShowPipesCompanyType} from "./search-pipes/show-pipes-company-type";
 
 
 
@@ -22,19 +22,20 @@ import { CompanyFilterComponent } from './company-filter/company-filter.componen
 @NgModule({
   declarations: [
     AppComponent,
-    // InputLogicCompanyComponent,
     CompanyListComponent,
     CompanyDetailComponent,
     CompanyYandexMapComponent,
     CompanySortComponent,
     SearchPipesName,
     CompanyFilterComponent,
+    ShowPipesCompanyType
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [CompanyService],
   bootstrap: [AppComponent]

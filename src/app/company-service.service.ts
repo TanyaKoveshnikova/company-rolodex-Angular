@@ -9,6 +9,8 @@ import {Config} from "./company-item";
 export class CompanyService implements OnInit{
   public company!: Config[];
   public companyItem!: Config | undefined;
+  public companyType!: any;
+  public registrationFormType: any;
   public url:string = 'https://random-data-api.com/api/company/random_company?size=100'
 
   constructor(private http: HttpClient) { }

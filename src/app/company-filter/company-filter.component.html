@@ -1,1 +1,17 @@
-<p>company-filter works!</p>
+<!--<p>company-filter works!</p>-->
+<!--<select class="custom-select" (change)="changeCompanyType($event)" formControlName="cityName">-->
+<!--  <option value="" disabled>Choose your city</option>-->
+<!--  <option *ngFor="let city of companyArray" [ngValue]="city">{{city}}</option>-->
+<!--</select>-->
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <div class="group-gap">
+      <div class="mb-3">
+        <select class="custom-select" (change)="changeCompanyType($event)" formControlName="typeCompany" >
+          <option value="">Choose your type company</option>
+          <option *ngFor="let type of companyType" [ngValue]="type">{{type}}</option>
+        </select>
+      </div>
+  </div>
+  <button type="submit" class="btn btn-danger btn-lg btn-block">Submit</button>
+</form>
+
