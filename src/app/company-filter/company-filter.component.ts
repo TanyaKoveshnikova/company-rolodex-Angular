@@ -41,6 +41,7 @@ export class CompanyFilterComponent implements OnInit {
   onSubmit() {
     this.companyService.registrationFormType =  JSON.stringify(this.registrationForm.value);
     alert(JSON.stringify(this.registrationForm.value))
+
     // this.companyUnicTypes();
   }
   // public  companyUnicTypes(): void{
@@ -55,6 +56,10 @@ export class CompanyFilterComponent implements OnInit {
   // }
 
   get typeCompany() {
+    let e = this.registrationForm.get('type')
+    this.companyService.registrationFormType.get('type')
+    this.companyService.getCompanyForSelectedType(JSON.stringify(e));
+    console.log(e.value + "e.valuetypr")
     return this.registrationForm.get('type');
   }
 
@@ -62,5 +67,8 @@ export class CompanyFilterComponent implements OnInit {
     this.typeCompany.setValue(e.target.value, {
       onlySelf: true
     })
+
+    this.companyService.getCompanyForSelectedType(e.target.value);
+    console.log(e.value + "e.value")
   }
 }

@@ -1,5 +1,5 @@
 ttttttttttt
-ttt{{g}}rrrrrr
+ttt{{companyType}}rrrrrr
 rrrrrrrr
 
 <div class="input-fields">
@@ -11,12 +11,19 @@ rrrrrrrr
 
 <div class="select-boxes">
   <div class="select-boxItem">
-    <app-company-filter [(ngModel)]="showTypeCompany"></app-company-filter>
+    <div class="group-gap">
+      <div class="mb-3">
+        <select class="custom-select"  [(ngModel)]="showTypeCompany">
+          <option value="">Choose your type company</option>
+          <option *ngFor="let type of companyType" [ngValue]="type">{{type}}</option>
+        </select>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="company-list">
-  <div *ngFor="let item of company | search:searchName" >
+  <div *ngFor="let item of company | search:searchName | show:showTypeCompany" >
     <a [routerLink]="['/detail',item.id]" > <div class="companyItem">
       <img class="imageCompanyItem" src="{{item.logo}}" alt="rr">
       {{item.suffix}}"{{item.business_name}}" <br>

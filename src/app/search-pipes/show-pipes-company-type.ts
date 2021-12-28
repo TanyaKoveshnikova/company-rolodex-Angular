@@ -6,12 +6,20 @@ import {CompanyService} from "../company-service.service";
   name: 'show'
 })
 export class ShowPipesCompanyType implements PipeTransform{
+
+  companyType:any
   constructor( public companyService: CompanyService) {
+    this.companyType = this.companyService.companyType;
   }
+
+
+
   transform(companyList:Config[], value:string): Array<Config> {
+    if(companyList.length === 0 || value === ''){
+      return companyList;
+    }
      return companyList.filter((x:any) => {
-       let chooseItem = this.companyService.registrationFormType;
-       if(chooseItem === x.type){
+       if(value === x.type){
           return x;
         }
     })

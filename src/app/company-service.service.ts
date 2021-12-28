@@ -9,9 +9,10 @@ import {Config} from "./company-item";
 export class CompanyService implements OnInit{
   public company!: Config[];
   public companyItem!: Config | undefined;
+
   public companyType!: any;
   public registrationFormType: any;
-  public url:string = 'https://random-data-api.com/api/company/random_company?size=100'
+  private url:string = 'https://random-data-api.com/api/company/random_company?size=100'
 
   constructor(private http: HttpClient) { }
 
@@ -30,6 +31,11 @@ export class CompanyService implements OnInit{
 
   ngOnInit() {
     this.getCompany();
+    this.getUnicTypesCompany();
+  }
+  public getCompanyType(){
+    this.getUnicTypesCompany();
+    return this.companyType;
   }
 
   public getCompanyArr(){
@@ -40,6 +46,26 @@ export class CompanyService implements OnInit{
     const item = this.company.find((item: Config) => item.id == id);
     this.companyItem = item;
     return this.companyItem;
+  }
+
+  public getCompanyForSelectedType(registrationFormType:any):any{
+    return this.company.filter((x:any) => {
+      let chooseItem = registrationFormType;
+      if(chooseItem === x.type){
+        return x;
+      }
+    })
+  }
+
+  public getUnicTypesCompany(){
+    const company = this.company;
+    let arrayTypes =[];
+    for(let i of company){
+      arrayTypes.push(i.type);
+    }
+
+    const uniqueSet = new Set(arrayTypes);
+    this.companyType = [...uniqueSet];
   }
 }
 

@@ -12,18 +12,23 @@ export class CompanyListComponent implements OnInit {
   company!: Config[];
   searchName = '';
   showTypeCompany =''
-  g:any
+  companyType:any
   constructor(public companyService: CompanyService) {
-    this.g = this.companyService.registrationFormType;
   }
 
   ngOnInit() {
     this.getCompany();
+    this.getCompanyType();
   }
 
   getCompany(){
     this.company = this.companyService.getCompanyArr();
   }
+
+  getCompanyType (){
+    this.companyType = this.companyService.getCompanyType();
+  }
+
 }
 
 
