@@ -15,6 +15,7 @@ import { CompanySortComponent } from './company-sort/company-sort.component';
 import { SearchPipesName } from './search-pipes/search-pipes-name';
 import {ShowPipesCompanyType} from "./search-pipes/show-pipes-company-type";
 import {ShowPipesCompanyIndustry} from "./search-pipes/show-pipes-company-industry";
+import {AngularYandexMapsModule} from "angular8-yandex-maps";
 
 
 
@@ -35,7 +36,8 @@ import {ShowPipesCompanyIndustry} from "./search-pipes/show-pipes-company-indust
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularYandexMapsModule
   ],
   providers: [CompanyService],
   bootstrap: [AppComponent]

@@ -1,5 +1,3 @@
-// export const CompanyItem =  fetch('https://random-data-api.com/api/company/random_company?size=100')
-// .then(res => { return res.j
 export interface Config{
   logo?:string,
   id:number,
@@ -9,5 +7,7 @@ export interface Config{
   type?:string,
   catch_phrase?: string,
   phone_number?: string,
-  full_address?: string
+  full_address?: string,
+  latitude: number,
+  longitude:number
 }

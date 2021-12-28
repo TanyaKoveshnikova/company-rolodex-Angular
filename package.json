@@ -19,9 +19,11 @@
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
     "angular-in-memory-web-api": "^0.13.0",
+    "angular8-yandex-maps": "^13.0.0",
     "lodash": "^4.17.21",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
+    "ymaps": "^0.2.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
