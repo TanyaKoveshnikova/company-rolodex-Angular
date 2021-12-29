@@ -1,9 +1,82 @@
-.company-list{
-  .companyItem{
-    border:1px solid black;
+.company-list-page {
+  width: 70%;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: 0.7fr 3fr 1fr;
+  align-items: start;
+  font-size: 20px;
+
+  .company-list {
+    justify-self: end;
+
+    .companyItem {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      border: 1px solid rgb(109, 101, 82);
+      border-radius: 10px;
+      min-height: 260px;
+      padding: 15px;
+      margin-top: 5px;
+      margin-right: 10px;
+      background: rgba(210, 180, 180, 0.65);
+
+      .imageCompanyItem {
+        align-self: center;
+        justify-self: center;
+
+        .image {
+          max-width: 300px;
+        }
+      }
+
+      .firstInfoCompany {
+        list-style-type: none;
+        align-self: center;
+        justify-self: start;
+
+        .elmentInfo {
+          color: black;
+          text-decoration: none;
+          list-style-type: none;
+          padding-bottom: 15px;
+
+          strong{
+            font-size: 23px;
+          }
+        }
+      }
+    }
+
+    .companyItem:hover {
+      box-shadow: rgba(117, 90, 87, 0.8) 0 0 15px 0;
+      transform: scale(1.01);
+    }
   }
-  .imageCompanyItem{
-    width:200px;
-    height: 100px;
+
+  .lookNeedValue {
+    justify-self: start;
+  }
+}
+
+
+.input-fields {
+  font-size: 25px;
+  margin-bottom: 15px;
+
+  .input{
+    font-size: 23px;
+    border-radius: 10px;
+  }
+}
+
+.select-boxes {
+  .custom-select {
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 23px;
+    border-radius: 10px;
   }
 }

@@ -1,0 +1,41 @@
+.companyItem{
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  width: 55%;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 20px;
+  border: 1px solid rgb(109, 101, 82);
+  background: rgba(210, 180, 180, 0.65);
+  border-radius: 15px;
+  min-height: 450px;
+
+  .element{
+    list-style-type: none;
+    align-self: center;
+    justify-self: start;
+    color: black;
+    text-decoration: none;
+    padding-bottom: 15px;
+
+    .item{
+      padding: 15px;
+    }
+
+    strong{
+      font-size: 23px;
+    }
+
+  }
+
+  .element:first-child{
+    align-self: center;
+    justify-self: center;
+
+    .imageCompanyItem {
+      max-width: 450px;
+    }
+  }
+}
+
