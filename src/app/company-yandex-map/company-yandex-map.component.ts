@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {YaConfig} from "angular8-yandex-maps";
+import {Component, OnInit} from '@angular/core';
+
 import {Config} from "../company-item";
 import {CompanyService} from "../company-service.service";
-// @ts-ignore
-import ymaps from 'ymaps';
 
 
 @Component({
@@ -13,14 +11,15 @@ import ymaps from 'ymaps';
 })
 export class CompanyYandexMapComponent implements OnInit {
   map: any;
-
   company!: Config[];
+
   constructor(public companyService: CompanyService) {
     this.company = this.companyService.company;
   }
 
-
   ngOnInit() {
   }
+
+
 }
 
