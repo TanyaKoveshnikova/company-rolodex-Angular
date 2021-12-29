@@ -1,8 +1,23 @@
+
 <div class="companyItem">
-  <img class="imageCompanyItem" src="{{companyItem.logo}}" alt="rr">
-  {{companyItem.suffix}}"{{companyItem.business_name}}" <br>
-  industry: {{companyItem.industry}}<br>
-  catch phrase: {{companyItem.catch_phrase}}<br>
-  phone number: {{companyItem.phone_number}}<br>
-  full address: {{companyItem.full_address}}
+  <div class="element">
+      <img class="imageCompanyItem" src="{{companyItem.logo}}" alt="rr">
+  </div>
+  <div class="element">
+    <div class="item">
+      <strong>name:</strong> {{companyItem.suffix}}"{{companyItem.business_name}}"
+    </div>
+    <div class="item">
+      <strong>industry</strong>: {{companyItem.industry}}
+    </div>
+    <div class="item">
+      <strong>catch phrase</strong>: {{companyItem.catch_phrase}}
+    </div>
+    <div class="item">
+      <strong>phone number</strong>: {{companyItem.phone_number}}
+    </div>
+    <div class="item">
+      <strong>full address</strong>: {{companyItem.full_address}}
+    </div>
+  </div>
 </div>

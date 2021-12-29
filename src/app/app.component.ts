@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CompanyService} from "./company-service.service";
 
 
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
     this.companyService.ngOnInit();
   }
   ngOnInit() {
-    // this.companyService.ngOnInit();
   }
+
 }
 
