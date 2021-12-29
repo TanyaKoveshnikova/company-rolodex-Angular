@@ -20,6 +20,7 @@ import {AngularYandexMapsModule} from "angular8-yandex-maps";
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import {AngularYandexMapsModule} from "angular8-yandex-maps";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularYandexMapsModule
+    AngularYandexMapsModule,
+
   ],
   providers: [CompanyService],
   bootstrap: [AppComponent]
