@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Config} from "../company-item";
-import {CompanyService} from "../company-service.service";
+import {ICompanyItem} from "../../company-item.interface";
+import {CompanyService} from "../../services/company-service.service";
 
 
 @Component({
@@ -11,7 +11,7 @@ import {CompanyService} from "../company-service.service";
 })
 export class CompanyYandexMapComponent implements OnInit {
   map: any;
-  company!: Config[];
+  company!: ICompanyItem[];
 
   constructor(public companyService: CompanyService) {
     this.company = this.companyService.company;

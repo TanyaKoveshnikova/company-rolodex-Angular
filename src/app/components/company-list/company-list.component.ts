@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';;
-import {CompanyService} from "../company-service.service";
-import {Config} from "../company-item";
+import {CompanyService} from "../../services/company-service.service";
+import {ICompanyItem} from "../../company-item.interface";
 
 
 @Component({
@@ -9,12 +9,14 @@ import {Config} from "../company-item";
   styleUrls: ['./company-list.component.scss'],
 })
 export class CompanyListComponent implements OnInit {
-  company!: Config[];
+  company!: ICompanyItem[];
   searchName = '';
   showTypeCompany ='';
   showIndustryCompany="";
   companyType:any;
   companyIndustry: any;
+
+
   constructor(public companyService: CompanyService) {
   }
 
@@ -25,7 +27,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   getCompany(){
-    this.company = this.companyService.getCompanyArr();
+    this.company = this.companyService.company;
   }
 
   getCompanyType (){

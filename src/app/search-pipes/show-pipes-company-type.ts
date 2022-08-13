@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from "@angular/core";
-import {Config} from "../company-item";
-import {CompanyService} from "../company-service.service";
+import {ICompanyItem} from "../company-item.interface";
+import {CompanyService} from "../services/company-service.service";
 
 @Pipe({
   name: 'show'
@@ -14,7 +14,7 @@ export class ShowPipesCompanyType implements PipeTransform{
 
 
 
-  transform(companyList:Config[], value:string): Array<Config> {
+  transform(companyList:ICompanyItem[], value:string): Array<ICompanyItem> {
     if(companyList.length === 0 || value === ''){
       return companyList;
     }

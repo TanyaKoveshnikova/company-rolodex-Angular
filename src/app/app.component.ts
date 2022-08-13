@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CompanyService} from "./company-service.service";
+import {CompanyService} from "./services/company-service.service";
 
 
 @Component({
@@ -7,13 +7,14 @@ import {CompanyService} from "./company-service.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'test-front';
+
   constructor(public companyService: CompanyService) {
     this.companyService.ngOnInit();
   }
+
   ngOnInit() {
   }
-
 }
 

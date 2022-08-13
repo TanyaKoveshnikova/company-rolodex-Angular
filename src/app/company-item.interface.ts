@@ -1,4 +1,4 @@
-export interface Config {
+export interface ICompanyItem {
   logo?: string,
   id: number,
   business_name?: string,

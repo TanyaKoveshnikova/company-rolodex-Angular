@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Config} from "../company-item";
-import {CompanyService} from "../company-service.service";
+import {ICompanyItem} from "../../company-item.interface";
+import {CompanyService} from "../../services/company-service.service";
 import {ActivatedRoute} from "@angular/router";
 import { switchMap} from "rxjs";
 
@@ -12,9 +12,9 @@ import { switchMap} from "rxjs";
   styleUrls: ['./company-detail.component.scss'],
 })
 export class CompanyDetailComponent implements OnInit {
-  company!: Config[];
+  company!: ICompanyItem[];
   public id!: number;
-  public companyItem!: Config;
+  public companyItem!: ICompanyItem;
 
 
   constructor(public companyService: CompanyService,

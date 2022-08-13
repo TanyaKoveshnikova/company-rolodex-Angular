@@ -1,0 +1,19 @@
+<a [routerLink]="['/detail',companyItem.id]">
+  <div class="companyItem">
+    <div class="imageCompanyItem">
+      <img class="image" src="{{companyItem.logo}}" alt="rr">
+    </div>
+
+    <div class="firstInfoCompany">
+      <div class="elementInfo">
+        <strong>name</strong>: <br> {{companyItem.suffix}} "{{companyItem.business_name}}"
+      </div>
+      <div class="elementInfo">
+        <strong>industry</strong>: {{companyItem.industry}}
+      </div>
+      <div class="elementInfo">
+        <strong>type</strong>: {{companyItem.type}}
+      </div>
+    </div>
+  </div>
+</a>
