@@ -21,7 +21,7 @@ const getTypeSort = (value: string): string => {
 export class SearchPipesName implements PipeTransform {
   transform(companyList: ICompanyItem[], value: string): Array<ICompanyItem> {
     let valueSort = getTypeSort(value);
-    if (companyList.length === 0 || value === '') {
+    if ( value === '') {
       return companyList;
     }
     return companyList.sort(function (a: any, b: any) {

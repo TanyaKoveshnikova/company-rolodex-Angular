@@ -10,6 +10,7 @@ export class CompanyItemComponent implements OnInit {
   @Input() companyItem!: ICompanyItem;
 
   constructor() {
+    console.log('render')
   }
 
   ngOnInit(): void {

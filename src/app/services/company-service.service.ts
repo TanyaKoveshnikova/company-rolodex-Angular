@@ -6,6 +6,9 @@ import {ICompanyItem} from "../company-item.interface";
 
 @Injectable({providedIn: 'root'})
 export class CompanyService implements OnInit {
+  public selectedIndustryFilter?: string | null;
+  public selectedTypeFilter?: string | null;
+
   public company!: ICompanyItem[];
   public companyItem!: ICompanyItem | undefined;
 

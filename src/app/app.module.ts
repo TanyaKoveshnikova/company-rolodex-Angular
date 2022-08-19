@@ -27,7 +27,7 @@ import {CompanyItemComponent} from './components/company-item/company-item.compo
     SearchPipesName,
     ShowPipesCompanyType,
     ShowPipesCompanyIndustry,
-    CompanyItemComponent
+    CompanyItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +36,7 @@ import {CompanyItemComponent} from './components/company-item/company-item.compo
     HttpClientModule,
     ReactiveFormsModule,
     AngularYandexMapsModule,
+
   ],
   providers: [CompanyService],
   bootstrap: [AppComponent]

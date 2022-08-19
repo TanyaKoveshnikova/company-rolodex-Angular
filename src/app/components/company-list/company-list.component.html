@@ -1,12 +1,18 @@
 <div class="company-list-page">
   <div></div>
-  <div class="company-list">
-    <div *ngFor="let item of company | companySort:searchName | show:showTypeCompany | showInd:showIndustryCompany">
+  <div>
+    <ng-container class="company-list" #itemsContainer></ng-container>
+    <ng-template  #item let-item="item">
       <app-company-item [companyItem]="item"></app-company-item>
-    </div>
+    </ng-template>
   </div>
+<!--    <div class="company-list" >-->
+<!--      <div *ngFor="let item of #itemsContainer  | companySort:searchName | show:showTypeCompany | showInd:showIndustryCompany">-->
+<!--        <app-company-item [companyItem]="item"></app-company-item>-->
+<!--      </div>-->
+<!--    </div>-->
 
-  <div class="'lookNeedValue">
+  <div class="'searchNeedValue">
     <div class="input-fields">
       <b>Find need company:</b>
       <div class="select-boxItem">
@@ -22,16 +28,16 @@
 
     <div class="select-boxes">
       <div class="select-boxItem">
-        <select class="custom-select" [(ngModel)]="showTypeCompany">
+        <select class="custom-select" (change)="updateCompanyListOnType()" [(ngModel)]="showTypeCompany">
           <option value="">Choose your type company</option>
-          <option *ngFor="let type of companyType" [ngValue]="type">{{type}}</option>
+          <option *ngFor="let type of unicCompanyType" [ngValue]="type">{{type}}</option>
         </select>
       </div>
 
       <div class="select-boxItem">
-        <select class="custom-select" [(ngModel)]="showIndustryCompany">
+        <select class="custom-select" (change)="updateCompanyListOnIndustry()" [(ngModel)]="showIndustryCompany">
           <option value="">Choose your industry company</option>
-          <option *ngFor="let industry of companyIndustry" [ngValue]="industry">{{industry}}</option>
+          <option *ngFor="let industry of unicCompanyIndustry " [ngValue]="industry">{{industry}}</option>
         </select>
       </div>
     </div>
