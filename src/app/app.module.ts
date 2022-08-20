@@ -16,6 +16,7 @@ import {ShowPipesCompanyType} from "./search-pipes/show-pipes-company-type";
 import {ShowPipesCompanyIndustry} from "./search-pipes/show-pipes-company-industry";
 import {AngularYandexMapsModule} from "angular8-yandex-maps";
 import {CompanyItemComponent} from './components/company-item/company-item.component';
+import {CompanyFilterComponent} from "./components/company-filter/company-filter.component";
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {CompanyItemComponent} from './components/company-item/company-item.compo
     ShowPipesCompanyType,
     ShowPipesCompanyIndustry,
     CompanyItemComponent,
+    CompanyFilterComponent
   ],
   imports: [
     BrowserModule,

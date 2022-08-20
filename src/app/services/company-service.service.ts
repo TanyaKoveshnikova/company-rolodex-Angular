@@ -2,6 +2,7 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ICompanyItem} from "../company-item.interface";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Injectable({providedIn: 'root'})
@@ -16,23 +17,28 @@ export class CompanyService implements OnInit {
   public companyIndustry!: any;
   private url: string = 'https://random-data-api.com/api/company/random_company?size=100'
 
-  constructor(private http: HttpClient) {
+  constructor(private _http: HttpClient, private _router: Router) {
   }
 
 
   public getCompanyItems(): Observable<Array<ICompanyItem>> {
-    return this.http.get<ICompanyItem[]>(this.url);
+    return this._http.get<ICompanyItem[]>(this.url);
   }
 
   public getCompany() {
     this.getCompanyItems()
-      .subscribe((response) => {
-        this.company = response;
-      });
+      .subscribe({
+        next: (response) => {
+          this.company = response;
+        },
+        complete: () => {
+          this._router.navigate(['list'])
+        }
+      })
+
   }
 
   ngOnInit() {
-    this.getCompany();
   }
 
   public getCompanyType() {

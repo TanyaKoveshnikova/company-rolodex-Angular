@@ -1,17 +1,26 @@
-<!--&lt;!&ndash;<p>company-filter works!</p>&ndash;&gt;-->
-<!--&lt;!&ndash;<select class="custom-select" (change)="changeCompanyType($event)" formControlName="cityName">&ndash;&gt;-->
-<!--&lt;!&ndash;  <option value="" disabled>Choose your city</option>&ndash;&gt;-->
-<!--&lt;!&ndash;  <option *ngFor="let city of companyArray" [ngValue]="city">{{city}}</option>&ndash;&gt;-->
-<!--&lt;!&ndash;</select>&ndash;&gt;-->
-<!--<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">-->
-<!--  <div class="group-gap">-->
-<!--      <div class="mb-3">-->
-<!--        <select class="custom-select" (change)="changeCompanyType($event)" formControlName="typeCompany" >-->
-<!--          <option value="">Choose your type company</option>-->
-<!--          <option *ngFor="let type of companyType" [ngValue]="type">{{type}}</option>-->
-<!--        </select>-->
-<!--      </div>-->
-<!--  </div>-->
-<!--  <button type="submit" class="btn btn-danger btn-lg btn-block">Submit</button>-->
-<!--</form>-->
+<form [formGroup]="controlsForm">
+  <div class="select-boxes">
+    <div class="input-name">
+      <label for="name-company" class="label-filter-name">Search by name: </label>
+      <input id="name-company"
+             type="text"
+             formControlName="nameCompany"
+             class="input-filter-name"
+             (input)="onSearchByName()">
+    </div>
 
+    <div class="select-boxItem">
+      <select class="custom-controls" (change)="updateCompanyListFilter()" formControlName="typeCompany">
+        <option selected [ngValue]=null>Choose your type company</option>
+        <option *ngFor="let type of unicCompanyType" [ngValue]="type">{{type}}</option>
+      </select>
+    </div>
+
+    <div class="select-boxItem">
+      <select class="custom-controls" (change)="updateCompanyListFilter()" formControlName="industryCompany">
+        <option selected [ngValue]=null>Choose your industry company</option>
+        <option *ngFor="let industry of unicCompanyIndustry " [ngValue]="industry">{{industry}}</option>
+      </select>
+    </div>
+  </div>
+</form>
