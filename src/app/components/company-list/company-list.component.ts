@@ -19,12 +19,20 @@ export class CompanyListComponent implements OnInit {
   @HostListener("window:scroll", ["$event"])
   onWindowScroll() {
     if (this.isEnableAddElementsOnScroll) {
-      let pos = window.scrollY + 10;
-      let max = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      if (pos >= max) {
+      const pos = window.scrollY + 10;
+      const maxAddElements = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (pos >= maxAddElements) {
         console.log('take me!!!')
         this.addNewElementInContainer(30, this._company)
       }
+
+      const doubleTimesSizeClientHeight = document.documentElement.clientHeight * 2
+      if (pos >= doubleTimesSizeClientHeight) {
+        this.container.remove(0);
+        console.log('remove')
+      }
+
+      console.log()
     }
   }
 
@@ -43,6 +51,11 @@ export class CompanyListComponent implements OnInit {
     this.addNewElementInContainer(50, this._company)
   }
 
+  public onSortCompanyItems(companies: ICompanyItem[]) {
+    this.container.clear();
+    this.addNewElementInContainer(50, companies);
+  }
+
   public onFilterCompanies(companies: ICompanyItem[]) {
     this.container.clear();
 
@@ -55,12 +68,14 @@ export class CompanyListComponent implements OnInit {
 
   public checkAddMoreElementsOnScroll(isSortedOrFiltration: boolean) {
     this.isEnableAddElementsOnScroll = isSortedOrFiltration;
-    console.log(isSortedOrFiltration)
   }
 
   private addNewElementInContainer(length: number, arrayCompanyItems: ICompanyItem[]) {
-    const start = 0;
+    const start = this.container.length;
     const end = start + length - 1;
+    if (start + end > arrayCompanyItems.length) {
+      arrayCompanyItems.push(...arrayCompanyItems);
+    }
 
     for (let n = start; n <= end; n++) {
       this.container.createEmbeddedView(this.template, {

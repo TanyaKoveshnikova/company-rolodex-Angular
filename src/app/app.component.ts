@@ -1,7 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component,  OnInit} from '@angular/core';
 import {CompanyService} from "./services/company-service.service";
-import {ActivatedRoute, Router} from "@angular/router";
-
 
 @Component({
   selector: 'app-root',
@@ -11,14 +9,11 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class AppComponent implements OnInit {
   title = 'test-front';
 
-  constructor(private _companyService: CompanyService, private _route: ActivatedRoute, private _router: Router) {
+  constructor(private _companyService: CompanyService) {
     this._companyService.getCompany();
   }
 
   ngOnInit() {
-  }
-
-  ngAfterViewInit() {
   }
 }
 

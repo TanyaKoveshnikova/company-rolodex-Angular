@@ -1,1 +1,11 @@
-<p>company-sort works!</p>
+<div class="input-fields">
+  <div class="title-change-field">Sort companies by:</div>
+  <div class="select-boxItem">
+    <select class="custom-select-field" (change)="onNewSortTypeSelected()" [(ngModel)]="typeSort">
+      <option selected [ngValue]="null"></option>
+      <option [ngValue]="'type'">type</option>
+      <option [ngValue]="'business_name'">business name</option>
+      <option [ngValue]="'industry'">industry</option>
+    </select>
+  </div>
+</div>

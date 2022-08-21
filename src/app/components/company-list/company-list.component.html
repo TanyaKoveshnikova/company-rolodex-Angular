@@ -7,18 +7,8 @@
     </ng-template>
   </div>
 
-  <div class="'searchNeedValue">
-    <div class="input-fields">
-      <b>Find need company:</b>
-      <div class="select-boxItem">
-        <select class="custom-select" [(ngModel)]="searchName">
-          <option value=""></option>
-          <option>on type company</option>
-          <option>on name company</option>
-          <option>on industry</option>
-        </select>
-      </div>
-    </div>
+  <div class="change-company-list">
+    <app-company-sort (onSortCompanyItems)="onSortCompanyItems($event)"></app-company-sort>
 
     <app-company-filter
       (onChange)="onFilterCompanies($event)"

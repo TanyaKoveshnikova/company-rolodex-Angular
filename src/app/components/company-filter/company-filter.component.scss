@@ -1,21 +1,9 @@
-.custom-controls {
-  padding: 0.2rem;
-  margin-bottom: 0.7rem;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  width: 20vw;
-}
+@import "../../styles/fieldsChangeList";
 
 .input-name {
   display: flex;
   flex-direction: column;
   margin-bottom: 0.7rem;
-
-  .label-filter-name {
-    font-size: 25px;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-  }
 
   .input-filter-name {
     font-size: 1.2rem;

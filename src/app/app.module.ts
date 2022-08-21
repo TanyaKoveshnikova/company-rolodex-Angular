@@ -11,12 +11,10 @@ import {CompanyDetailComponent} from './components/company-detail/company-detail
 import {CompanyYandexMapComponent} from './components/company-yandex-map/company-yandex-map.component';
 
 import {CompanyService} from "./services/company-service.service";
-import {SearchPipesName} from './search-pipes/search-pipes-name';
-import {ShowPipesCompanyType} from "./search-pipes/show-pipes-company-type";
-import {ShowPipesCompanyIndustry} from "./search-pipes/show-pipes-company-industry";
 import {AngularYandexMapsModule} from "angular8-yandex-maps";
 import {CompanyItemComponent} from './components/company-item/company-item.component';
 import {CompanyFilterComponent} from "./components/company-filter/company-filter.component";
+import {CompanySortComponent} from "./components/company-sort/company-sort.component";
 
 
 @NgModule({
@@ -25,11 +23,9 @@ import {CompanyFilterComponent} from "./components/company-filter/company-filter
     CompanyListComponent,
     CompanyDetailComponent,
     CompanyYandexMapComponent,
-    SearchPipesName,
-    ShowPipesCompanyType,
-    ShowPipesCompanyIndustry,
     CompanyItemComponent,
-    CompanyFilterComponent
+    CompanyFilterComponent,
+    CompanySortComponent
   ],
   imports: [
     BrowserModule,

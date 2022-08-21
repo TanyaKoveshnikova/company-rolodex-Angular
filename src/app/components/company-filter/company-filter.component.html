@@ -1,7 +1,7 @@
 <form [formGroup]="controlsForm">
   <div class="select-boxes">
     <div class="input-name">
-      <label for="name-company" class="label-filter-name">Search by name: </label>
+      <label for="name-company" class="title-change-field">Search by name: </label>
       <input id="name-company"
              type="text"
              formControlName="nameCompany"
@@ -10,14 +10,14 @@
     </div>
 
     <div class="select-boxItem">
-      <select class="custom-controls" (change)="updateCompanyListFilter()" formControlName="typeCompany">
+      <select class="custom-select-field" (change)="updateCompanyListFilter()" formControlName="typeCompany">
         <option selected [ngValue]=null>Choose your type company</option>
         <option *ngFor="let type of unicCompanyType" [ngValue]="type">{{type}}</option>
       </select>
     </div>
 
     <div class="select-boxItem">
-      <select class="custom-controls" (change)="updateCompanyListFilter()" formControlName="industryCompany">
+      <select class="custom-select-field" (change)="updateCompanyListFilter()" formControlName="industryCompany">
         <option selected [ngValue]=null>Choose your industry company</option>
         <option *ngFor="let industry of unicCompanyIndustry " [ngValue]="industry">{{industry}}</option>
       </select>

@@ -2,7 +2,7 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ICompanyItem} from "../company-item.interface";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Router} from "@angular/router";
 
 
 @Injectable({providedIn: 'root'})

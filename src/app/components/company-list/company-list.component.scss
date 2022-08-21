@@ -11,30 +11,9 @@
 
   .company-list {
     justify-self: end;
-
-    .companyItem:hover {
-      box-shadow: rgba(117, 90, 87, 0.8) 0 0 15px 0;
-      transform: scale(1.01);
-    }
   }
 
-  .searchNeedValue {
+  .change-company-list {
     justify-self: start;
   }
-}
-
-
-.input-fields {
-  font-size: 25px;
-  margin-bottom: 15px;
-
-  .input {
-    font-size: 23px;
-    border-radius: 10px;
-  }
-}
-
-
-b {
-  font-weight: 620;
 }

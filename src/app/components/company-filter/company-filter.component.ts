@@ -22,7 +22,7 @@ export class CompanyFilterComponent implements OnInit {
 
   private _filteredCompaniesByName: ICompanyItem[] = [];
 
-  constructor(public companyService: CompanyService) {
+  constructor(private _companyService: CompanyService) {
   }
 
   ngOnInit(): void {
@@ -63,15 +63,15 @@ export class CompanyFilterComponent implements OnInit {
   }
 
   private getCompanyItems(): ICompanyItem[] {
-    return this.companyService.company
+    return this._companyService.company
   }
 
   private getCompanyType() {
-    this.unicCompanyType = this.companyService.getCompanyType();
+    this.unicCompanyType = this._companyService.getCompanyType();
   }
 
   private getCompanyIndustry() {
-    this.unicCompanyIndustry = this.companyService.getCompanyIndustry();
+    this.unicCompanyIndustry = this._companyService.getCompanyIndustry();
   }
 
   private filterByName(searchLine: string): ICompanyItem[] {
