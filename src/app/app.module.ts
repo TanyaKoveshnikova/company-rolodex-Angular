@@ -34,7 +34,6 @@ import {CompanySortComponent} from "./components/company-sort/company-sort.compo
     HttpClientModule,
     ReactiveFormsModule,
     AngularYandexMapsModule,
-
   ],
   providers: [CompanyService],
   bootstrap: [AppComponent]

@@ -32,6 +32,13 @@ export class CompanyListComponent implements OnInit {
         console.log('remove')
       }
 
+      const sizeClientHeight = document.documentElement.clientHeight * 1.2
+      if (pos <= sizeClientHeight) {
+        const firstElementCollections = this.container.get(0);
+        //this._company.indexOf(firstElementCollections?.markForCheck())
+        console.log(this.container.get(0)?.markForCheck() )
+      }
+
       console.log()
     }
   }

@@ -1,6 +1,8 @@
-
-<div class="container">
-  <ya-map [center]="[56.9704700, 60.5821900]" [zoom]="13">
-    <ya-placemark [geometry]="[56.9704700, 60.5821900]"></ya-placemark>
-  </ya-map>
+<div class="map-container">
+  <div id="map"></div>
+  <div class="company-list">
+    <div *ngFor="let companyItem of company">
+      <div class="company-item" (click)="onOpenBalloonCompany(companyItem)">{{companyItem.business_name}}</div>
+    </div>
+  </div>
 </div>

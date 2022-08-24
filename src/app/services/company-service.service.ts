@@ -30,6 +30,7 @@ export class CompanyService implements OnInit {
       .subscribe({
         next: (response) => {
           this.company = response;
+
         },
         complete: () => {
           this._router.navigate(['list'])
