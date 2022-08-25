@@ -18,7 +18,7 @@ export class CompanyListComponent implements OnInit {
 
   @HostListener("window:scroll", ["$event"])
   onWindowScroll() {
-    if (this.isEnableAddElementsOnScroll) {
+    if (this._isEnableAddElementsOnScroll) {
       const pos = window.scrollY + 10;
       const maxAddElements = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       if (pos >= maxAddElements) {
@@ -26,26 +26,36 @@ export class CompanyListComponent implements OnInit {
         this.addNewElementInContainer(30, this._company)
       }
 
-      const doubleTimesSizeClientHeight = document.documentElement.clientHeight * 2
-      if (pos >= doubleTimesSizeClientHeight) {
+      const posNowPixel = window.scrollY || document.documentElement.scrollTop;
+
+      if (this._positionOnScrollForMousDown <= posNowPixel ) {
         this.container.remove(0);
+        this._counterRemoveCompanyItems += 1;
         console.log('remove')
-      }
 
-      const sizeClientHeight = document.documentElement.clientHeight * 1.2
-      if (pos <= sizeClientHeight) {
-        const firstElementCollections = this.container.get(0);
-        //this._company.indexOf(firstElementCollections?.markForCheck())
-        console.log(this.container.get(0)?.markForCheck() )
-      }
+        this._positionOnScroll = posNowPixel - 262
+      } else  if (this._positionOnScroll  > posNowPixel || document.documentElement.clientHeight + 262 >= posNowPixel) {
+        if (this._counterRemoveCompanyItems !== -1) {
+          this.container.createEmbeddedView(this.template, {
+            item: this._company[this._counterRemoveCompanyItems]
+          }, 0);
+          this._counterRemoveCompanyItems -= 1;
+          console.log('add')
 
-      console.log()
+          this._positionOnScroll = posNowPixel
+        }
+      }
     }
+    console.log(this.container.length, ' container length')
+
   }
 
   public searchName = '';
   private _company!: ICompanyItem[];
-  private isEnableAddElementsOnScroll: boolean = true;
+  private _isEnableAddElementsOnScroll: boolean = true;
+  private _counterRemoveCompanyItems: number = -1;
+  private _positionOnScroll: number = 0;
+  private _positionOnScrollForMousDown: number = document.documentElement.clientHeight * 2;
 
   constructor(public companyService: CompanyService) {
   }
@@ -74,7 +84,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   public checkAddMoreElementsOnScroll(isSortedOrFiltration: boolean) {
-    this.isEnableAddElementsOnScroll = isSortedOrFiltration;
+    this._isEnableAddElementsOnScroll = isSortedOrFiltration;
   }
 
   private addNewElementInContainer(length: number, arrayCompanyItems: ICompanyItem[]) {
@@ -96,4 +106,4 @@ export class CompanyListComponent implements OnInit {
 
 
 
-
+//TODO: ' ДОДЕЛАТЬ СКРОЛЛ '
