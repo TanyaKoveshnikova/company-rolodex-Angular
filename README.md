@@ -23,7 +23,6 @@ On the map you can see the location of the company, detailed information.
 
 **[>> click to go to the repository with tasks <<](https://github.com/Artsofte-Inc/test-front)**
 
-
 ## Project setup
 
 ```
