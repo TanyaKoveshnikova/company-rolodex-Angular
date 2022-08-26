@@ -19,35 +19,19 @@ export class CompanyListComponent implements OnInit {
   @HostListener("window:scroll", ["$event"])
   onWindowScroll() {
     if (this._isEnableAddElementsOnScroll) {
-      const pos = window.scrollY + 10;
-      const maxAddElements = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      if (pos >= maxAddElements) {
-        console.log('take me!!!')
+      const displaySize = document.documentElement.clientHeight;
+      const posScrollOnTop = window.scrollY || document.documentElement.scrollTop;
+      const maxAddElements = document.documentElement.scrollHeight - displaySize;
+      if (posScrollOnTop + 10 >= maxAddElements) {
         this.addNewElementInContainer(30, this._company)
       }
 
-      const posNowPixel = window.scrollY || document.documentElement.scrollTop;
-
-      if (this._positionOnScrollForMousDown <= posNowPixel ) {
-        this.container.remove(0);
-        this._counterRemoveCompanyItems += 1;
-        console.log('remove')
-
-        this._positionOnScroll = posNowPixel - 262
-      } else  if (this._positionOnScroll  > posNowPixel || document.documentElement.clientHeight + 262 >= posNowPixel) {
-        if (this._counterRemoveCompanyItems !== -1) {
-          this.container.createEmbeddedView(this.template, {
-            item: this._company[this._counterRemoveCompanyItems]
-          }, 0);
-          this._counterRemoveCompanyItems -= 1;
-          console.log('add')
-
-          this._positionOnScroll = posNowPixel
-        }
+      if (this._positionOnScrollForMouseDown < posScrollOnTop) {
+        this.removeElementFromContainer();
+      } else if (this._positionOnScroll > posScrollOnTop || displaySize >= posScrollOnTop) {
+        this.addElementBeginningInContainer(posScrollOnTop);
       }
     }
-    console.log(this.container.length, ' container length')
-
   }
 
   public searchName = '';
@@ -55,7 +39,7 @@ export class CompanyListComponent implements OnInit {
   private _isEnableAddElementsOnScroll: boolean = true;
   private _counterRemoveCompanyItems: number = -1;
   private _positionOnScroll: number = 0;
-  private _positionOnScrollForMousDown: number = document.documentElement.clientHeight * 2;
+  private _positionOnScrollForMouseDown: number = document.documentElement.clientHeight * 2;
 
   constructor(public companyService: CompanyService) {
   }
@@ -100,10 +84,20 @@ export class CompanyListComponent implements OnInit {
       });
     }
   }
+
+  private removeElementFromContainer(): void {
+    this.container.remove(0);
+    this._counterRemoveCompanyItems += 1;
+  }
+
+  private addElementBeginningInContainer(posScrollOnTop: number): void {
+    if (this._counterRemoveCompanyItems !== -1) {
+      this.container.createEmbeddedView(this.template, {
+        item: this._company[this._counterRemoveCompanyItems]
+      }, 0);
+      this._counterRemoveCompanyItems -= 1;
+      this._positionOnScroll = posScrollOnTop
+    }
+  }
 }
 
-
-
-
-
-//TODO: ' ДОДЕЛАТЬ СКРОЛЛ '
